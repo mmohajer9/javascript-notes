@@ -6,7 +6,7 @@
 2. **`defer`** will tell the browser to download the javascript files but not to execute it till the parsing is complete and not block parsing HTML , so it guarantees us that it only executes the scripts once they were downloaded and once parsing HTML is finished so you can use it like this **`<script src="" defer></script>`**
 3. We have also **`<script src="" async></script>`** which is similar to **`defer`** but it tells the browser to don't pause/block the parsing HTML just like **`defer`** but with a little difference , it won't prevent the engine from executing the javascript codes after downloading them while the parsing is not blocked. note that whenever the download is finished , the parsing is paused/blocked and the execution of the code begins in the end parsing will be continued. it's mostly used when the javascript code doesn't rely on the HTML elements and don't need to wait for the engine to parse them.
 4. also in **`async`** mode the order of the execution is not guaranteed
-5. all of the details up there is only available if and only if you have used the external javascript files with `src="./..."` attribute , otherwise if you put the javascript codes in the `<script>...</script>`  it doesn't need to download so it will execute them first and `async` and `defer` attributes will be ignored
+5. all of the details up there is only available if and only if you have used the external javascript files with `src="./..."` attribute , otherwise if you put the javascript codes in the `<script>...</script>` it doesn't need to download so it will execute them first and `async` and `defer` attributes will be ignored
 
 ![timeline](./imports-timeline.png)
 
