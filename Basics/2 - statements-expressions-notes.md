@@ -4,9 +4,9 @@
 
 1. in order to check for `NaN` , use built-in function `isNaN()` otherwise it won't work with `===` or `==` operators.
 2. check this picture out (Coercing):
-   ![true-false](./Basics/true-false.png)
+   ![true-false](./true-false.png)
 3. and also this (Making Real Boolean Values Out of things!):
-   ![boolean-tricks](./Basics/boolean-tricks.png)
+   ![boolean-tricks](./boolean-tricks.png)
 
 ## Statements vs Expressions
 
