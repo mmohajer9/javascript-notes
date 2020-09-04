@@ -28,3 +28,32 @@
    ```javascript
    let result = add(,12) // it is WRONG !
    ```
+
+4. Rest Operator vs Old Fashioned arguemnts variable
+
+   ```javascript
+   // rest operator ; also works for function() style
+   const sumUp = (a, b, ...numbers) => {
+     let sum = 0;
+     for (const num of numbers) {
+       sum += num;
+     }
+     return sum;
+   };
+
+   // arguments built-in variable for old-fashioned function()
+   // only useable in this style
+   const subtractUp = function () {
+     let sum = 0;
+     for (const num of arguments) {
+       sum += num;
+     }
+     return sum;
+   };
+   ```
+
+5. Callback Function means a function that it is called for you by something else and you just pass a reference or saying pointer to that function to another function to call it for you
+
+6. method `.bind()` is very useful when you are trying to :
+   1. setting `this` to a specific method or function
+   2. preparing arguments before calling the method or function
