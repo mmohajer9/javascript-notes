@@ -117,3 +117,32 @@
    // checking with equality to undefined
    console.log(person.age !== undefined);
    ```
+
+8. About **`this`** Keyword Behaviour In Objects for Normal Functions (not arrow functions):
+
+   1. **`this`** does not automatically refer to the object that kind of surrounds it
+   2. **`this`** refers to who or what was responsible for calling this function , **it is very very important !** , note that this tip was for normal functions like **`function(){...}`** **not arrow functions** like **`(...) => {...}`**
+   3. consider the following code :
+
+      ```javascript
+      let btn = document.querySelector("#submit-btn"); // get the submit button element
+
+      const someFunc = function () {
+        console.log(this); // this will output the button element
+      };
+
+      btn.addEventListener("click", someFunc);
+      ```
+
+      In this case the **`this`** object will refer to the object that is responsible for triggering that **`someFunc`** function and it will return the button object element.
+
+   4. **`this`** that refers to global **`window`** object , will be **`undefined`** **if we use strict mode** , i mean : **`use strict`**
+   5. In summary : normal functions will change the binding of **`this`**
+
+9. About **`this`** Keyword Behaviour In Objects for Arrow Functions **`((...) => {...})`**:
+   1. Arrow functions **don't bind `this` to anything !**
+   2. **`this`** is not overwritten by the function , instead it refers to exact same thing that it would refer to outside of the function.
+   3. strict mode **does not** any changes on **`this`** behaviour in arrow functions
+   4. **`.bind()`** method in functions does not affect arrow functions
+   5. Arrow Functions don't bind **`this`** to anything , instead they keep the context , it means the this will be bind to what ever it is outside of the function.
+   6. Arrow functions don't change the binding of **`this`**

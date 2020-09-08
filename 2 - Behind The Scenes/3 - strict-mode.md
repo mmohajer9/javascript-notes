@@ -5,7 +5,7 @@
 3. these bad patterns are shown in the following sample code :
 
 ```javascript
-"use strict mode"; // first you should enable strict mode in your code
+"use strict"; // first you should enable strict mode in your code
 
 userName = "mamad"; // raise an error ,
 // because of declaring variables without var , let , const
