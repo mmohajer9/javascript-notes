@@ -65,5 +65,10 @@
 4. Array Destructuring :
 
    ```javascript
+   let array = [1, 2, 3, "salam", "che khabar"];
 
+   let [a, b, c, ...text_arr] = array;
+
+   // a = 1 , b = 2 , c = 3
+   // text_arr = ["salam", "che khabar"]
    ```
