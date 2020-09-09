@@ -140,9 +140,47 @@
    5. In summary : normal functions will change the binding of **`this`**
 
 9. About **`this`** Keyword Behaviour In Objects for Arrow Functions **`((...) => {...})`**:
+
    1. Arrow functions **don't bind `this` to anything !**
    2. **`this`** is not overwritten by the function , instead it refers to exact same thing that it would refer to outside of the function.
    3. strict mode **does not** any changes on **`this`** behaviour in arrow functions
    4. **`.bind()`** method in functions does not affect arrow functions
    5. Arrow Functions don't bind **`this`** to anything , instead they keep the context , it means the this will be bind to what ever it is outside of the function.
    6. Arrow functions don't change the binding of **`this`**
+
+10. Getters and Setters :
+
+    ```javascript
+    let person = {
+      firstName: "Mamad",
+      lastName: "Mohajer",
+      age: 30,
+      // new syntax
+      set jobTitle(value) {
+        if (value.trim()) {
+          // make a new property here
+          // we can access to this property from getters and setters
+          // not directly and its internal
+          this._jobTitle = value;
+        } else {
+          this._jobTitle = "DEFAULT";
+          return;
+        }
+      },
+      get jobTitle() {
+        return this._jobTitle;
+      },
+    };
+    ```
+
+    How can we work and access to this getters and setters ?
+
+    ```javascript
+    // getting the property
+    console.log(person.jobTitle);
+
+    // setting the property
+    person.jobTitle = "Computer Scientist";
+    ```
+
+    it is very useful when you want to change the behaviour of accessing the properties or the behaviour of setting the properties
