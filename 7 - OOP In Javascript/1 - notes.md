@@ -84,3 +84,38 @@
    ```
 
    in the end , we have always normal javascript objects , it is not something different.
+
+3. Static Methods and Fields in classes :
+
+   ```javascript
+   class Product {
+     // this is a static field
+     static fieldName;
+
+     // this is a static method
+     // we can access to this method via class itself
+     static myMethod() {
+       console.log(this); // this refers to the current 'Class'
+     }
+
+     // constructor
+     constructor(title, imageUrl, desc, price) {
+       // this refers to the 'Current Object' that is want to be created
+       this.title = title ? title : "DEFAULT_TITLE";
+       this.imageUrl = imageUrl;
+       this.description = desc;
+       this.price = price;
+     }
+   }
+   ```
+
+   in **Static Methods**, **`this`** refers to the **current class**.
+
+   ***
+
+   How to Use ? , See :
+
+   ```javascript
+   Product.myMethod();
+   Product.fieldName;
+   ```
