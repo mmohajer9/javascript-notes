@@ -50,17 +50,21 @@
 
    ```javascript
    class Product {
-     title = "DEFAULT_TITLE";
-     imageUrl;
-     description;
-     price;
+
+     // You can omit these fields
+     // and defines them in constructor method
+
+     // title = "DEFAULT_TITLE";
+     // imageUrl;
+     // description;
+     // price;
 
      someNameMethod() {...}
 
      // constructor
      constructor(title, imageUrl, desc, price) {
          // this refers to the 'Current Object' that is want to be created
-         this.title = title;
+         this.title = title ? title : "DEFAULT_TITLE";
          this.imageUrl = imageUrl;
          this.description = desc;
          this.price = price
