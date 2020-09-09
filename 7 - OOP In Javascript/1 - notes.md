@@ -40,7 +40,13 @@
    **Constructor method** will be called at the **beginning of the creation of the object of that class**
    **we can use it for setting initial values to the properties or fields and do some stuffs for the first time of creating the object**
 
-   **NOTE** : we call them fields when we are in class context and then , we call them properties when we are in object context
+   ***
+
+   **NOTE** : we call them fields when we are in class context and then , we call them properties when we are in object context and in summary :
+
+   ![field-vs-property](./field-vs-property.png)
+
+   > Fields define properties for classes
 
    ```javascript
    class Product {
