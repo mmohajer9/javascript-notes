@@ -119,3 +119,80 @@
    Product.myMethod();
    Product.fieldName;
    ```
+
+4. Getters and Setters :
+
+   ```javascript
+   class ShoppingCart {
+     items = [];
+
+     get totalAmount() {
+       const sum = this.items.reduce((prev, curr, items) => prev + curr, 0);
+     }
+
+     set cartItems(value) {
+       this.items = value;
+     }
+   }
+   ```
+
+5. fields that were defined in a class can only be accessible after the **`super()`** (parent constructor) is called, it means the fields are translated to properties after the **PARENT** constructor ran. otherwise you should pull them into another method , something like **`fetchData`** and set the datas in this function and then try to render items in that. this can be really helpful when you are also working with fetching datas from a server. **(Very Helpful)** , also another approach is try to hold the rendering somehow !
+
+6. Encapsulation
+
+   ```javascript
+   class ProductList {
+     // wanna make private field
+     #products = []; // private field
+
+     someMethod() {
+       // accessing private field inside of a method
+       let prod_list = this.#products;
+     }
+
+     // wanna make private methods
+     #privateMethodField1 = () => {};
+
+     #privateMethodField2 = function () {};
+   }
+   ```
+
+7. Pseudo-Private Properties
+   The addition of private fields and properties is relatively new - in the past, such a feature was not part of JavaScript.
+
+   Hence you might find many scripts that use a concept which you could describe as "pseudo-private" properties.
+
+   It would look like this:
+
+   ```javascript
+   class User {
+     constructor() {
+       this._role = "admin";
+     }
+   }
+
+   // or directly in an object
+
+   const product = {
+     _internalId: "abc1",
+   };
+   ```
+
+   **What's that?**
+
+   It's a quite common convention to prefix private properties with an underscore (**`_`**) to signal that they should not be accessed from outside of the object.
+
+   Important: It's just a convention that should signal something! It does NOT technically prevent access. You CAN run this code without errors for example:
+
+   ```javascript
+   const product = {
+     _internalId: "abc1",
+   };
+   console.log(product._internalId); // works!
+   ```
+
+   It's really just a hint that developers should respect. It's not as strict as the "real" private properties introduced recently (**`#propertyName`**).
+
+8. instanceof Operator
+
+   ![instanceof](./instanceOf.png)
