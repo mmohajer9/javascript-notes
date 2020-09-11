@@ -137,8 +137,9 @@
    ```
 
 5. fields that were defined in a class can only be accessible after the **`super()`** (parent constructor) is called, it means the fields are translated to properties after the **PARENT** constructor ran. otherwise you should pull them into another method , something like **`fetchData`** and set the datas in this function and then try to render items in that. this can be really helpful when you are also working with fetching datas from a server. **(Very Helpful)** , also another approach is try to hold the rendering somehow !
+6. If you don't define any constructor method in child classes , it will automatically call parent constructor by default and if you explicitly define a constructor method for the child class , you should always first call **`super()`** which is **parent class constructor method** , otherwise , **it will raise an error.**
 
-6. Encapsulation
+7. Encapsulation
 
    ```javascript
    class ProductList {
@@ -157,7 +158,7 @@
    }
    ```
 
-7. Pseudo-Private Properties
+8. Pseudo-Private Properties
    The addition of private fields and properties is relatively new - in the past, such a feature was not part of JavaScript.
 
    Hence you might find many scripts that use a concept which you could describe as "pseudo-private" properties.
@@ -193,6 +194,6 @@
 
    It's really just a hint that developers should respect. It's not as strict as the "real" private properties introduced recently (**`#propertyName`**).
 
-8. instanceof Operator
+9. instanceof Operator
 
    ![instanceof](./instanceOf.png)
