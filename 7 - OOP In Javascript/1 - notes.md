@@ -197,3 +197,6 @@
 9. instanceof Operator
 
    ![instanceof](./instanceOf.png)
+
+10. When you use **`this`** in some method of the base class , if you then called it on the object that is based on the subclass , this in the base class will refer to the concrete object on which you called it not on the base class. **IT IS VERY IMPORTANT**
+    ![this-in-base-class](./this-in-base-class.png)
