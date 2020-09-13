@@ -184,3 +184,29 @@
     ```
 
     it is very useful when you want to change the behaviour of accessing the properties or the behaviour of setting the properties
+
+11. Object Descriptors
+
+    1. Every Property you add and every method you add is basiaclly a property which holds an objecct that is called **Descriptor**. So , How to get that ?
+    2. To get property descriptor use this :
+
+       ```javascript
+       Object.getOwnPropertyDescriptor(object, "propertyKeyName");
+
+       // or for getting all descriptors
+
+       Object.getOwnPropertyDescriptors(object);
+       ```
+
+    3. That's some metadata stored behind the scenes by javascript , it influences how the properties can be used , like some configurations and you can change them too. So how to change ?
+
+       ```javascript
+       let descriptor_object = {
+         configurable: true,
+         enumerable: true,
+         value: "someValue",
+         writable: true,
+       };
+
+       Object.defineProperty(object, "propertyKeyName", descriptor_object);
+       ```
