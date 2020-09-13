@@ -54,3 +54,27 @@
 
    console.log(obj.__proto__ === Object.prototype); // logs true
    ```
+
+5. Methods in classes will be placed in the prototype of the object when we instantiate : **`__proto__`** and the **fields** will be translated to **properties** in **object it self** , because of **optimizations** when you are instantiating many objects of the same class, with this approach , we won't create method objects for each of the instances instead it will be placed in prototype (**`__proto__`**) and does not need to be created again.
+
+   ![proto-method](./proto-methods.png)
+
+6. You can change (setting) the prototype of objects that you created and the prototype of objects that still not being created but want to create them without your constructor function and with a different prototype
+
+   ```javascript
+   let person = {...};
+
+   let proto = Object.getPrototypeOf(person); // returns the prototype of person object (person.__proto__)
+
+   let customProto = {...}
+
+   // it will change the prototype of person object
+   // and set it to customProto object
+   Object.setPrototypeOf(person , customProto); // person.__proto__ === customProto -> true
+
+
+   // creating the object and setting its prototype before the creation
+   let customProto2 = {...};
+   let student = Object.create(customProto2);
+
+   ```
