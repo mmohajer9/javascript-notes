@@ -1,6 +1,6 @@
 # Strict Mode in Javascript
 
-1. at the beginning of your code , put `'use strict mode'`
+1. at the beginning of your code , put `'use strict'`
 2. it will force you to avoid some bad patterns in your coding style with javascript
 3. these bad patterns are shown in the following sample code :
 
