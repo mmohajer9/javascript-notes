@@ -61,3 +61,26 @@
    ```
 
    It is completely different from **`event.preventDefault`**.
+
+   There is also another method which is used when we have multiple event listeners on the **same element**. consider a situation when we have 3 eventListeners on the **`button`** element and we only want to trigger the first one so we should stop the propagation of the event after triggering the first event handler. so we can do this
+
+   ```javascript
+
+    const div = ...;
+
+    div.addEventListener('click',event => {
+        event.stopImmediatePropagation();
+        ...
+    })
+
+    // these two will not be triggered
+
+    div.addEventListener('click',event => {
+        ...
+    })
+    div.addEventListener('click',event => {
+        ...
+    })
+   ```
+
+8. You should also note this that **not all events propagate**.
