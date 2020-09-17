@@ -124,6 +124,8 @@
    });
    ```
 
+   There is also another property called **`relatedTarget`** , it shows the opposite target of **`event.target`** based on the relation of that event. for example : on **`mouseenter`** event , the entered element is **`event.target`** , and the exited (leaved) element is **`event.relatedTarget`** and for **`mouseleave`** it is the opposite.
+
 10. How to trigger an event programmatically ?
 
     ```javascript
