@@ -55,5 +55,14 @@
 5. Callback Function means a function that it is called for you by something else and you just pass a reference or saying pointer to that function to another function to call it for you
 
 6. method `.bind()` is very useful when you are trying to :
+
    1. setting `this` to a specific method or function
    2. preparing arguments before calling the method or function
+   3. note that bind method always return a new function or btw a new or different function object which is not equal with the function it self.
+
+   ```javascript
+   const f1 = someFunction;
+   const f2 = someFunction.bind(this, ...);
+
+   console.log(f1 === f2); // returns false
+   ```
