@@ -112,3 +112,38 @@
 
    so what will happen if we click on an inside element , something like the first **`h2`** tag ?
    The important thing in here is the property **`event.target`**. so what element does this property, i mean **`.target`** refer to ? the answer is **The property which is propagating the event to the outside elements** , and because we have an event listener on the outside element which is **`ul`** , we can listen to this propagated event with its origin target. so this background will apply to the its origin target which we clicked so it will change the color of **`h2`** tag and it is correct for the same cases.
+
+   And also it is good to know this , there is another property called **`.currentTarget`** which returns the element that the event listener has been added to it. this means :
+
+   ```javascript
+   const ul = document.querySelector(".list");
+
+   ul.addEventListener("click", (event) => {
+     // event.currentTarget is ul element
+     event.currentTarget.style.backgroundColor = "red";
+   });
+   ```
+
+10. How to trigger an event programmatically ?
+
+    ```javascript
+    const btn = document.querySelector(...);
+
+    // triggering the click event programmatically
+
+    btn.click();
+    ```
+
+11. **`this`** in the event listeners that use normal functions (**arrow functions does not bind this to anything**) :
+
+    ```javascript
+    const ul = document.querySelector(...);
+
+    ul.addEventListener('click' , function (event) {
+
+        // this will give the <ul></ul> element
+        // btw : it always return the currentTarget
+        // not the target !
+        console.log(this);
+    })
+    ```
