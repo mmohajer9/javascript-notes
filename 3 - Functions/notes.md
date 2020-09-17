@@ -65,4 +65,7 @@
    const f2 = someFunction.bind(this, ...);
 
    console.log(f1 === f2); // returns false
+
+   // bind method always returns a new function object
+   // which is not in the same reference value with the previous one
    ```
