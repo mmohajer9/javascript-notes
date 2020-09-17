@@ -84,3 +84,31 @@
    ```
 
 8. You should also note this that **not all events propagate**.
+
+9. Event Delegation : Consider the following code:
+
+   ```html
+    <ul class="list">
+        <li>
+            <h2>Item 1<h2>
+            <p>Paragraph 1</p>
+        </li>
+        <li>
+            <h2>Item 2<h2>
+            <p>Paragraph 2</p>
+        </li>
+    </ul>
+   ```
+
+   You want to write a code which performs the changing the background color of every element you clicked in the list to red. instead of adding event listener on every list item you can add one event listener on **`<ul>`** element and get benefit of propagation feature of events. This is called **Event Delegation**.
+
+   ```javascript
+   const ul = document.querySelector(".list");
+
+   ul.addEventListener("click", (event) => {
+     event.target.style.backgroundColor = "red";
+   });
+   ```
+
+   so what will happen if we click on an inside element , something like the first **`h2`** tag ?
+   The important thing in here is the property **`event.target`**. so what element does this property, i mean **`.target`** refer to ? the answer is **The property which is propagating the event to the outside elements** , and because we have an event listener on the outside element which is **`ul`** , we can listen to this propagated event with its origin target. so this background will apply to the its origin target which we clicked so it will change the color of **`h2`** tag and it is correct for the same cases.
