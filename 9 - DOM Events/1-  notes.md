@@ -85,7 +85,7 @@
 
 8. You should also note this that **not all events propagate**.
 
-9. Event Delegation : Consider the following code:
+9. **Event Delegation** : Consider the following code:
 
    ```html
     <ul class="list">
