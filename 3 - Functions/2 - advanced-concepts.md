@@ -23,3 +23,32 @@
    }
    // this code will generate a random number every time for a certain seed
    ```
+
+2. **NOTE** : Using impure functions is not bad and it is absolutely fine **but** try to have less impure functions as much as you can. it helps the code to be more predictable
+
+## Factory Functions
+
+1. What are them ? they are functions that can produces another functions
+
+   ```javascript
+   function createTaxCalculator(tax) {
+     function calculateTax(amount) {
+       return amount * tax;
+     }
+
+     return calculateTax;
+     // notice that we are returning the refrenced value
+     // which is the function it self
+   }
+
+   const calculator1 = createTaxCalculator(0.19);
+   const calculator2 = createTaxCalculator(0.25);
+
+   console.log(calculator1(100));
+   console.log(calculator2(200));
+   ```
+
+## Closure
+
+1. Every function in javascript is a **Closure** , now what is that being a closure then ?
+2. s
