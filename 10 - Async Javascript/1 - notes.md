@@ -141,3 +141,26 @@
                   .then()
                   .catch(err => {...});
    ```
+
+8. Note that in promise chain , if we have a scenario like this :
+
+   ```javascript
+   const prom = setTimer(2000)
+                  .then() // 1
+                  .then() // 2
+                  .then() // 3
+                  .then() // 4
+                  .catch(err => {...}); // 5
+                  .then() // 6
+                  .then() // 7
+                  .then(); // 8
+   ```
+
+   If we have some errors in chain number 2 (`// 2`) for example , it will jump to **`catch`** which is number 5 and execute the **`catch`** method and ignore the previous **`then`** statements. and after that , it will continue and execute the rest of the chain , i mean number 6 , 7 , 8.
+
+   ***
+
+   Now if we have an error in chain number 7 , **It will not jump to the catch method that was previous in number 5 and the whole chain will be stopped because of that error which we did not catch it**.
+   So if you wanna the promise chain continues , **you should add another catch phrase in the continue or at least at the end of the chain**.
+
+   So if you don't set **`.catch()`** or **second arg error handler** and if you have errors in somewhere , it will raise that error and stop the promise chain , but if you set these 2 functions , it will jump into them when we have errors and continue to run the other **`.then()`** statements after that catch rather than previous ones. and for the upcoming probable errors you must have another **`catch`** after the first **`catch`**.
