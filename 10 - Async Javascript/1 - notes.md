@@ -48,9 +48,9 @@
      setTimeout(() => {
        resolve("someData");
      }, timeout);
-   })
-     .then(resolveFunction) // -> data => {...}
-     .catch(rejectFunction); // -> error => {...}
+   }).then(resolveFunction, rejectFunction);
+   // -> data => {...}
+   // -> error => {...}
    ```
 
    Where can this promise be useful ? See the code below:
@@ -69,6 +69,19 @@
      return promise;
    };
 
+   setTimer(2000).then(
+     (data) => {
+       console.log(data);
+     },
+     (error) => {
+       console.log(error);
+     }
+   );
+   ```
+
+   Also , for error handling , we can use an alternative too , because passing two callbacks to then method is not the best practice. So we can do this :
+
+   ```javascript
    setTimer(2000)
      .then((data) => {
        console.log(data);
@@ -86,3 +99,45 @@
 
    The core idea of promise chaining is to return another promise in **`.then(...)`** method and declare another **`.then`** method for the returned object which is also a promise and it is creating a chain of promises which we can use to do tasks step by step and avoid nesting the tasks especially asynchronous tasks.
    When you use chaining , the later steps or later then methods will execute if the previous ones has been executed, because it is a chain of promises, if one ring falls , the rest of the rings of the chain will be.
+
+7. Error handling in Promise Chain:
+
+   1. First of all , you need to know that , if in a promise chain , we see an error in for example one of the chains , it directly goes to the **nearest** (nearest from the top or beginning) **`.catch()`** or **second argument error handler** (2 ways of declaring error handlers) and execute that handler function which is **`rejectFunction`** , and ignore the rest of the **`.then()`** methods before the **`.catch()`** or **second argument error handler**.
+   2. **But** it will continue to execute the remaining **`.then()`** methods that is comming after that **`.catch()` or second arg error handler**.
+
+   ```javascript
+   const prom = setTimer(2000)
+                  .then()
+                  .then()
+                     .
+                     .
+                     .
+                  // go and execute this
+                  // if we see an error in the above chains
+                  .catch(err => {...})
+                  // these methods will also be executed
+                  .then()
+                  .then()
+                     .
+                     .
+                     .
+                  .then();
+   ```
+
+   If you wanna make the chain something like if you see an error , the whole chain stops , you should move the **second arg error handler or `.catch()`** to the end of the chain. Like this :
+
+   ```javascript
+   const prom = setTimer(2000)
+                  .then()
+                  .then()
+                     .
+                     .
+                     .
+                  .then()
+                  .then()
+                     .
+                     .
+                     .
+                  .then()
+                  .catch(err => {...});
+   ```
