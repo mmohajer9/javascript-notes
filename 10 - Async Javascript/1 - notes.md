@@ -83,3 +83,6 @@
 6. Promise Chain :
 
    ![chain](./promise-chain.png)
+
+   The core idea of promise chaining is to return another promise in **`.then(...)`** method and declare another **`.then`** method for the returned object which is also a promise and it is creating a chain of promises which we can use to do tasks step by step and avoid nesting the tasks especially asynchronous tasks.
+   When you use chaining , the later steps or later then methods will execute if the previous ones has been executed, because it is a chain of promises, one ring falls , the rest of the rings of the chain will be.
