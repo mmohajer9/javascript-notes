@@ -164,3 +164,114 @@
    So if you wanna the promise chain continues , **you should add another catch phrase in the continue or at least at the end of the chain**.
 
    So if you don't set **`.catch()`** or **second arg error handler** and if you have errors in somewhere , it will raise that error and stop the promise chain , but if you set these 2 functions , it will jump into them when we have errors and continue to run the other **`.then()`** statements after that catch rather than previous ones. and for the upcoming probable errors you must have another **`catch`** after the first **`catch`**.
+
+   ***
+
+9. **Summary of Promise Chains**
+
+   You learned about the different promise states:
+
+   **PENDING** => Promise is doing work, neither then() nor catch() executes at this moment
+
+   **RESOLVED** => Promise is resolved => **`then()`** executes
+
+   **REJECTED** => Promise was rejected => **`catch()`** executes
+
+   When you have another **`then()`** block after a **`catch()`** or **`then()`** block, the promise re-enters **PENDING** mode
+
+   ***
+
+   **Keep In MInd: then() and `catch()` always return a new promise - either not resolving to anything or resolving to what you return inside of `then()`**.
+
+   ***
+
+   Only if **there are no more then() blocks left**, it enters a new, final mode: **SETTLED**.
+
+   Once **SETTLED**, you can use a special block - **`finally()`** - to do final cleanup work. **`finally()`** is reached no matter if you resolved or rejected before.
+
+   Here's an example:
+
+   ```javascript
+   somePromiseCreatingCode()
+     .then((firstResult) => {
+       return "done with first promise";
+     })
+     .catch((err) => {
+       // would handle any errors thrown before
+       // implicitly returns a new promise - just like then()
+     })
+     .finally(() => {
+       // the promise is settled now - finally() will NOT return a new promise!
+       // you can do final cleanup work here
+     });
+   ```
+
+## Async & Await
+
+1. You can use the alternative way for using promises and extend your functionalities and have much more cleaner codes using **`Async/Await`**.
+2. We saw that you should wrap your async task with a promise and use resolves and rejects , now you can do another thing , put **`async`** behind the function declaration and it becomes an **asynchronous function** and will always return a **Promise** and **if you have any return values in async function , it will wrapped in a promise.**
+3. The body of an async function is always wrapped in a new Promise. If the return **value** is primitive, async functions return a **promise-wrapped version of the value**. However, when the return value is a **promise object**, its resolution is returned in a **new promise**
+
+   ```javascript
+   async function setTimer(duration) {
+
+     await somePromiseCreator();
+     await asyncTask();
+     ...
+   }
+   ```
+
+4. Async / Await does not change the way Javascript works or executes , it just transforms this code behind the scenes. **`await`** will not make javascript stop for executing that promise instead it will transform that into the promise chain version
+   An **`await`** acts on an expression. When the expression is a **promise**, the evaluation of the async function halts until the promise is resolved.
+   When the expression is a **non-promise value**, it is **converted to a promise** using **`Promise.resolve`** and then resolved.
+
+   Here is the example:
+
+   1. Here is the version for example using Async / Await and not using Promises:
+
+      ```javascript
+      async function trackUserHandler() {
+        const postData = await getPosition();
+        const timerData = await setTimer(2000);
+        console.log(timerData, postData);
+      }
+      ```
+
+   2. And this is the most likely (not the exact) transformed version behind the scenes to Promises:
+
+      ```javascript
+      function trackUserHandler() {
+        let posData;
+        let timerData;
+
+        getPosition()
+          .then((positionData) => {
+            posData = positionData;
+            return setTimer(2000);
+          })
+          .then((data) => {
+            timerData = data;
+          });
+      }
+      ```
+
+5. Check these methods too , it's easy:
+
+   ```javascript
+   // race between multiple promises and
+   // returns the promise which resolves or rejects sooner than the others
+   // notice that the other promises will also continue to resolve or reject
+   // but their output will be ignored but they will not be cancelled.
+   Promise.race(array_of_promises)
+           // this data is the data of the promise
+           // that is resolved or rejected
+           .then(data => {...});
+
+   // resolve only when all of the promises in the array resolves
+   // if one promise rejects , it will not wait for other promises to resolve or reject
+   // and it goes to error handler
+   Promise.all(array_of_promises)
+           // this data is the 'Combined Data' of the promises
+           // that are resolved or rejected
+           .then(data => {...});
+   ```
