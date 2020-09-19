@@ -274,4 +274,10 @@
            // this data is the 'Combined Data' of the promises
            // that are resolved or rejected
            .then(data => {...});
+
+    // like .all() but will note cancel the execution of other promises
+    // and in the end it will give you a brief summary of the execution of the promises
+    // that which promise resolved or rejected
+    Promise.allSettled(array_of_promises)
+           .then(data => {...})
    ```
