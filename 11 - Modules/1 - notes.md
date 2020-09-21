@@ -19,6 +19,14 @@
    import * as bundleModuleAlias from "./path/to/moduleNameFile.js";
    ```
 
+   Webpack imports does not need file extensions (**`.js`**) at the end of import:
+
+   ```javascript
+   import defaultObject, {
+     moduleName as alias,
+   } from "./path/to/moduleNameFile";
+   ```
+
 4. Dynamic Import:
 
    ```javascript
