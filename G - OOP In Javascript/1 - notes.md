@@ -136,10 +136,42 @@
    }
    ```
 
-5. fields that were defined in a class can only be accessible after the **`super()`** (parent constructor) is called, it means the fields are translated to properties after the **PARENT** constructor ran. otherwise you should pull them into another method , something like **`fetchData`** and set the datas in this function and then try to render items in that. this can be really helpful when you are also working with fetching datas from a server. **(Very Helpful)** , also another approach is try to hold the rendering somehow !
-6. If you don't define any constructor method in child classes , it will automatically call parent constructor by default and if you explicitly define a constructor method for the child class , you should always first call **`super()`** which is **parent class constructor method** , otherwise , **it will raise an error.**
+5. Class Inheritance
 
-7. Encapsulation
+   ```javascript
+   class Animal {
+     constructor(name) {
+       this.speed = 0;
+       this.name = name;
+     }
+     run(speed) {
+       this.speed = speed;
+       alert(`${this.name} runs with speed ${this.speed}.`);
+     }
+     stop() {
+       this.speed = 0;
+       alert(`${this.name} stands still.`);
+     }
+   }
+
+   let animal = new Animal("My animal");
+
+   class Rabbit extends Animal {
+     hide() {
+       alert(`${this.name} hides!`);
+     }
+   }
+
+   let rabbit = new Rabbit("White Rabbit");
+
+   rabbit.run(5); // White Rabbit runs with speed 5.
+   rabbit.hide(); // White Rabbit hides!
+   ```
+
+6. fields that were defined in a class can only be accessible after the **`super()`** (parent constructor) is called, it means the fields are translated to properties after the **PARENT** constructor ran. otherwise you should pull them into another method , something like **`fetchData`** and set the datas in this function and then try to render items in that. this can be really helpful when you are also working with fetching datas from a server. **(Very Helpful)** , also another approach is try to hold the rendering somehow !
+7. If you don't define any constructor method in child classes , it will automatically call parent constructor by default and if you explicitly define a constructor method for the child class , you should always first call **`super()`** which is **parent class constructor method** , otherwise , **it will raise an error.**
+
+8. Encapsulation
 
    ```javascript
    class ProductList {
@@ -158,7 +190,7 @@
    }
    ```
 
-8. Pseudo-Private Properties
+9. Pseudo-Private Properties
    The addition of private fields and properties is relatively new - in the past, such a feature was not part of JavaScript.
 
    Hence you might find many scripts that use a concept which you could describe as "pseudo-private" properties.
@@ -194,9 +226,9 @@
 
    It's really just a hint that developers should respect. It's not as strict as the "real" private properties introduced recently (**`#propertyName`**).
 
-9. instanceof Operator
+10. instanceof Operator
 
-   ![instanceof](./instanceOf.png)
+    ![instanceof](./instanceOf.png)
 
-10. When you use **`this`** in some method of the base class , if you then called it on the object that is based on the subclass , this in the base class will refer to the concrete object on which you called it not on the base class. **IT IS VERY IMPORTANT**
+11. When you use **`this`** in some method of the base class , if you then called it on the object that is based on the subclass , this in the base class will refer to the concrete object on which you called it not on the base class. **IT IS VERY IMPORTANT**
     ![this-in-base-class](./this-in-base-class.png)

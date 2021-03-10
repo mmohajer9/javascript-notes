@@ -1,6 +1,6 @@
 # Prototypes
 
-1. Every constructor function you build has a special prototype peroperty **which is not added to the objects you create based on it** because **it is not** part of the constructor function body **BUT** a property of that **function object** and that prototype is there by default , you can edit it and it is then automatically assigned **as a prototype** to the object when you instantiate that constructor function.
+1. Every constructor function you build has a special prototype property **which is not added to the objects you create based on it** because **it is not** part of the constructor function body **BUT** a property of that **function object** and that prototype is there by default , you can edit it and it is then automatically assigned **as a prototype** to the object when you instantiate that constructor function.
 
    ![proto1](./proto1.png)
 

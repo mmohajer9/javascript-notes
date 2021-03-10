@@ -6,15 +6,15 @@
 
    ```javascript
    class Person {
-       name - "Mamad"
+     name = "Mamad";
 
-       constructor() {
-           this.age = 30;
-       }
+     constructor() {
+       this.age = 30;
+     }
 
-       greet(){
-           console.log(this.name , this.age);
-       }
+     greet() {
+       console.log(this.name, this.age);
+     }
    }
 
    const person = new Person();
