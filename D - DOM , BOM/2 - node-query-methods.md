@@ -40,3 +40,7 @@ More information: [getElementsByTagName](https://developer.mozilla.org/en-US/doc
 There also is the **`getElementsByName()`** method **which really isn't used commonly.**
 
 More information : [getElementsByName](<(https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementsByName).>)
+
+For Summary :
+
+![query](./querying-elements.png)
