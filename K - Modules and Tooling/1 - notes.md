@@ -79,3 +79,11 @@
       ![setup](./setup.png)
 
    so you should make use of **Node.js** and initialize the Javascript Project with **`npm init`** and make use of node.js packages in **`node_modules/`** in your machine.
+
+10. To initialize a Javascript project follow these steps :
+    1. `npm init` in the project folder
+    2. install tooling and bundling packages like : **webpack**
+    3. install linting : **eslint** , **jshint** , ...
+    4. install code compilation for browser support : **babel**
+    5. install dev servers : **serve** m **webpack-dev-server**
+    6. install utility packages : **lodash** , **axios** , ...
