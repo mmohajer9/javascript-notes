@@ -70,3 +70,12 @@
    in modules , **`globalThis`** replaces **`this`** as your pointer at the window object because **`this` inside of modules is not defined**.
 
 8. **Imports** are automatically **hoisted** and sorted to the top
+
+9. Final Notes :
+
+   1. This section was all about the utilites that the browser and JS engine within the browser can make use of.
+   2. Many utilities such as **Bundling** , **Code Optimizing** , **Code Compilation** , **Development Server** , **Linting** and ... are available through **Node.js** and the packages that it can use. for summary take a look at this picture :
+
+      ![setup](./setup.png)
+
+   so you should make use of **Node.js** and initialize the Javascript Project with **`npm init`** and make use of node.js packages in **`node_modules/`** in your machine.
