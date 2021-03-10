@@ -121,7 +121,7 @@
 8. About **`this`** Keyword Behaviour In Objects for Normal Functions (not arrow functions):
 
    1. **`this`** does not automatically refer to the object that kind of surrounds it
-   2. **`this`** refers to who or what was responsible for calling this function , **it is very very important !** , note that this tip was for normal functions like **`function(){...}`** **not arrow functions** like **`(...) => {...}`**
+   2. **`this`** refers to **who or what was responsible for calling this function** , **it is very very important !** , note that this tip was for normal functions like **`function(){...}`** **not arrow functions** like **`(...) => {...}`**
    3. consider the following code :
 
       ```javascript
@@ -187,7 +187,7 @@
 
 11. Object Descriptors
 
-    1. Every Property you add and every method you add is basiaclly a property which holds an objecct that is called **Descriptor**. So , How to get that ?
+    1. Every Property you add and every method you add is basiaclly a property which holds an object that is called **Descriptor**. So , How to get that ?
     2. To get property descriptor use this :
 
        ```javascript

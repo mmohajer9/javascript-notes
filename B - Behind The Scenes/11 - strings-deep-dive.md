@@ -15,7 +15,7 @@
    }
 
    const name = "Mamad";
-   const lastName = "Mohajer;
+   const lastName = "Mohajer";
 
    const output = describe`Hi My Name is ${name} and my last name is ${lastName}`;
 

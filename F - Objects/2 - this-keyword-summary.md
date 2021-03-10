@@ -4,7 +4,7 @@ The this keyword can lead to some headaches in JavaScript - this summary hopeful
 
 this refers to different things, depending on where it's used and how (if used in a function) a function is called.
 
-Generally, this refers to the "thing" which called a function (if used inside of a function). That can be the global context, an object or some bound data/ object (e.g. when the browser binds this to the button that triggered a click event).
+Generally, **`this`** refers to the "**thing**" which called a function (if used inside of a function). That can be the global context, an object or some bound data/ object (e.g. when the browser binds this to the button that triggered a click event).
 
 1. this in Global Context (i.e. outside of any function)
 
