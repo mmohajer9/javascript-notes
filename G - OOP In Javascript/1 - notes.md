@@ -234,11 +234,10 @@
     ![this-in-base-class](./this-in-base-class.png)
     
 12. The order of class initialization, as defined by JavaScript, is:
-
-   1. The base class fields are initialized
-   2. The base class constructor runs
-   3. The derived class fields are initialized
-   4. The derived class constructor runs
-   5. This means that the base class constructor saw its own value for name during its own constructor, because the derived class field initializations hadn’t run yet.
+      1. The base class fields are initialized
+      2. The base class constructor runs
+      3. The derived class fields are initialized
+      4. The derived class constructor runs
+      5. This means that the base class constructor saw its own value for name during its own constructor, because the derived class field initializations hadn’t run yet.
 
 
