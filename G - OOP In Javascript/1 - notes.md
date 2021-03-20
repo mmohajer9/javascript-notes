@@ -233,7 +233,9 @@
 11. When you use **`this`** in some method of the base class , if you then called it on the object that is based on the subclass , this in the base class will refer to the concrete object on which you called it not on the base class. **IT IS VERY IMPORTANT**
     ![this-in-base-class](./this-in-base-class.png)
     
-12. The **order of class field initialization**, as defined by JavaScript for the following code, is:
+12. Overriding of methods will act as the same as other languages typical class-based inheritance , which means if you **override a method in child class** , it **will use that method (in child)** even if you **call it in the constructor of parent class**.
+ 
+13. The **order of class field initialization**, as defined by JavaScript for the following code, is:
       ```javascript
       class Base {
         name = "base";
@@ -256,4 +258,5 @@
       4. The derived class constructor runs
       5. This means that the base class constructor saw its own value for name during its own constructor, because the derived class field initializations hadn’t run yet.
 
-
+14. In most of the other programming languages (e.g. **Python**) which are using **class-based inheritance** , you can consider the inheritance process as creating a quiet new class which has the properties and methods of parent class. It means at first, you can imagine it as copying all of the properties and methods of the parent class right into the child class and then the overrided fields and methods will replace the old ones, that is how we come up with a brand new class which is descendant of the parent.
+15. just notice that in **class-based inheritance** , field and methods of the class will be overriden and taken place in the new class at the **Compile-Time** while in the **prototype-inheritance** , it is done at the **Runtime**. Why is that ? because of the javascript performance in the browser with prototype-inheritance is much more better than class-based inheritance and its implementation is much more convinient and easier than the other approach.
