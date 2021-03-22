@@ -260,3 +260,15 @@
 
 14. In most of the other programming languages (e.g. **Python**) which are using **class-based inheritance** , you can consider the inheritance process as creating a quiet new class which has the properties and methods of parent class. It means at first, you can imagine it as copying all of the properties and methods of the parent class right into the child class and then the overrided fields and methods will replace the old ones, that is how we come up with a brand new class which is descendant of the parent.
 15. just notice that in **class-based inheritance** , field and methods of the class will be overriden and taken place in the new class at the **Compile-Time** while in the **prototype-inheritance** , it is done at the **Runtime**. Why is that ? because of the javascript performance in the browser with prototype-inheritance is much more better than class-based inheritance and its implementation is much more convinient and easier than the other approach.
+---
+16. Summary / Inheritance : Order of Initializing:
+   1. Methods/Getter/Setter : in **Both** Parent and Child
+   2. Parent Fields
+   3. Parent Constructor : ( **Super()** in Child Constructor )
+   4. Child Fields : ( **After** executing **Super()** )
+   5. Child Constructor
+
+17. Best Practices:
+   1. Do not access **Child Fields** inside **Parent Constructor**
+   2. Do not access **Child Methods** inside **Parent Constructor**
+   3. Do not use **Child Fields and Methods** inside **Parent Methods or Expressions**
