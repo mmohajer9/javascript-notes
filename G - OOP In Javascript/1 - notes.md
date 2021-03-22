@@ -268,7 +268,7 @@
       2. Parent Fields
       3. Parent Constructor : ( **Super()** in Child Constructor )
       4. Child Fields : ( **After** executing **Super()** )
-      5. Child Constructor
+      5. Child Constructor : ( Lines of code after Super() )
 
 17. Best Practices:
       1. Do not access **Child Fields** inside **Parent Constructor**
